@@ -162,7 +162,7 @@ angular.module('adfDynamicSample', [
         navigator.msSaveBlob(blob, 'export.json');
       } else {
 
-        var downloadContainer = angular.element('<a data-tap-disabled="true" class="btn btn-info"><span class="glyphicon glyphicon-save"></span> Export</a>');
+        var downloadContainer = angular.element('<span data-tap-disabled="true"><a class="btn btn-info"><span class="glyphicon glyphicon-save"></span> Export</a></span>');
         var downloadLink = angular.element(downloadContainer.children()[0]);
         downloadLink.attr('href', window.URL.createObjectURL(blob));
         downloadLink.attr('download', 'export.json'); //this.getFilename()
