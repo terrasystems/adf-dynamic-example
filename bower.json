@@ -13,10 +13,12 @@
     "adf-widget-randommsg": "^0.1.0",
     "adf-widget-linklist": "^0.1.0",
     "adf-widget-news": "^0.1.0",
-    "adf-widget-version": "^0.1.0"
+    "adf-widget-version": "^0.1.0",
+    "ng-csv": "^0.3.6",
+    "adf-widget-imgText": "adf-widget-test#*"
   },
   "resolutions": {
-    "angular": "1.4.x",
+    "angular": "1.4.9",
     "angular-dashboard-framework": "^0.11.0",
     "bootstrap": "^3.3.6",
     "Sortable": "^1.2.1",

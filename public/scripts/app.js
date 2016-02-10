@@ -28,7 +28,8 @@ angular.module('adfDynamicSample', [
     'adf', 'ngRoute', 'adf.structures.base',
     'adf.widget.clock', 'adf.widget.github', 'adf.widget.iframe',
     'adf.widget.linklist', 'adf.widget.markdown', 'adf.widget.news',
-    'adf.widget.randommsg', 'adf.widget.version', 'adf.widget.weather'
+    'adf.widget.randommsg', 'adf.widget.version', 'adf.widget.weather','adf.widget.imgText',
+    'ngSanitize', 'ngCsv'
   ])
   .config(function($routeProvider){
     $routeProvider
@@ -140,6 +141,8 @@ angular.module('adfDynamicSample', [
         nav.items = data;
       });
     });
+
+
   })
   .controller('dashboardCtrl', function($location, $rootScope, $scope, $routeParams, storeService, data){
     this.name = $routeParams.id;
