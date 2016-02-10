@@ -142,9 +142,8 @@ angular.module('adfDynamicSample', [
       });
     });
 
-
   })
-  .controller('dashboardCtrl', function($location, $rootScope, $scope, $routeParams, storeService, data){
+  .controller('dashboardCtrl', function($location, $rootScope, $scope, $routeParams, storeService, data, $document, $timeout){
     this.name = $routeParams.id;
     this.model = data;
 
@@ -153,6 +152,29 @@ angular.module('adfDynamicSample', [
       $location.path('/');
       $rootScope.$broadcast('navChanged');
     };
+
+    if (this.model) {
+      var blob = new Blob([JSON.stringify(this.model, null, 2)], {
+        type: "text/json;charset=utf-8;"
+      });
+
+      if (window.navigator.msSaveOrOpenBlob) {
+        navigator.msSaveBlob(blob, 'export.json');
+      } else {
+
+        var downloadContainer = angular.element('<a data-tap-disabled="true" class="btn btn-info"><span class="glyphicon glyphicon-save"></span> Export</a>');
+        var downloadLink = angular.element(downloadContainer.children()[0]);
+        downloadLink.attr('href', window.URL.createObjectURL(blob));
+        downloadLink.attr('download', 'export.json'); //this.getFilename()
+        downloadLink.attr('target', '_blank');
+
+        $document.find('footer').append(downloadContainer);
+        $timeout(function () {
+          // downloadLink[0].click();
+          // downloadLink.remove();
+        }, null);
+      }
+    }
 
     $scope.$on('adfDashboardChanged', function(event, name, model) {
       storeService.set(name, model);
