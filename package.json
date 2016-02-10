@@ -2,7 +2,7 @@
   "name": "adf-dynamic-example",
   "version": "0.1.0-SNAPSHOT",
   "scripts": {
-    "postinstall": "./node_modules/.bin/bower install --force-latest --allow-root"
+    "postinstall": "bower install --force-latest --allow-root"
   },
   "dependencies": {
     "body-parser": "^1.9.0",
